@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_insert"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="插入新数据"
+        />
+    <item
+        android:id="@+id/action_deleteAll"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="删除所有数据"
+        />
+
+
+</menu>

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFAFA"
+    android:clipChildren="false"
+    android:orientation="vertical"
+    tools:context=".Wode">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+
+                    android:id="@+id/iv_image"
+                    android:layout_width="120dp"
+                    android:layout_height="200dp"
+                    android:background="@null"
+                    android:src="@mipmap/laonianren2" />
+
+            </LinearLayout>
+
+            <TableLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/ll"
+                android:stretchColumns="1">
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/nicheng"
+                        android:drawableLeft="@mipmap/nicheng"
+                        android:gravity="center"
+                        android:text="昵称:"
+                        android:textSize="25dp" />
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:background="#E0FFFF"
+                        android:textSize="20dp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/dizhi"
+                        android:drawableLeft="@mipmap/dizhi"
+                        android:gravity="center"
+                        android:text="地址:"
+                        android:textSize="25dp" />
+
+                    <TextView
+                        android:id="@+id/address"
+                        android:background="#E0FFFF"
+                        android:textSize="16dp"
+                         />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/shijian"
+                        android:drawableLeft="@mipmap/shijian"
+                        android:gravity="center"
+                        android:text="时间:"
+                        android:textSize="25dp" />
+
+                    <TextClock
+                        android:id="@+id/time"
+                        android:background="#E0FFFF"
+                        android:format24Hour="yyyy/MM/dd HH:mm:ss"
+                        android:textSize="20dp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/tianqi"
+                        android:drawableLeft="@mipmap/tianqi"
+                        android:gravity="center"
+                        android:text="天气:"
+                        android:textSize="25dp" />
+
+                    <TextView
+                        android:id="@+id/weather"
+                        android:background="#E0FFFF"
+                        android:text="多云转晴 21-33°"
+                        android:textSize="20dp" />
+                </TableRow>
+            </TableLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/boda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:drawableLeft="@mipmap/bohao"
+                android:text="拨打"
+                android:textSize="25dp" />
+
+            <Button
+                android:id="@+id/jianting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="5dp"
+                android:drawableLeft="@mipmap/jianting"
+                android:text="监听"
+                android:textSize="25dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/shishidingwei"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
+                android:layout_margin="20dp"
+
+                android:src="@mipmap/shishidingwei" />
+
+            <Button
+                android:id="@+id/dingwei"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/shishidingwei"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@id/shishidingwei"
+                android:text="实时定位"
+                android:background="#E0FFFF"
+                android:textSize="20dp" />
+
+            <ImageView
+                android:id="@+id/lishiguiji"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="80dp"
+                android:src="@mipmap/lishiguiji" />
+
+            <Button
+                android:id="@+id/histor"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/lishiguiji"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="80dp"
+                android:layout_toRightOf="@id/lishiguiji"
+                android:text="历史轨迹"
+                android:background="#FF6A6A"
+                android:textSize="20dp" />
+
+            <ImageView
+                android:id="@+id/dianziweilan"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="140dp"
+
+                android:src="@mipmap/dianziweilan" />
+
+            <Button
+                android:id="@+id/dianziweilan1"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/dianziweilan"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="140dp"
+                android:layout_toRightOf="@id/dianziweilan"
+                android:text="电子围栏"
+                android:background="#E066FF"
+                android:textSize="20dp" />
+        </RelativeLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <RadioGroup
+        android:id="@+id/radiogroup"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#FFFFFF"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/news"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="消息" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/xiaofangzi"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:background="@mipmap/xiaofangzi"
+                android:gravity="center" />
+        </RelativeLayout>
+
+        <RadioButton
+            android:id="@+id/wode"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="我的" />
+
+    </RadioGroup>
+</LinearLayout>
