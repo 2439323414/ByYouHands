@@ -9,13 +9,16 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.R;
 
+import top.androidman.SuperButton;
+
 public class ChangepawActivity extends AppCompatActivity {
 
-    private Button btn_queding;
+    private SuperButton btn_queding;
     private EditText et_user_name,et_psw;
     private String userName,psw;
     @Override
@@ -26,7 +29,7 @@ public class ChangepawActivity extends AppCompatActivity {
     }
 
     private void init() {
-        btn_queding = (Button)findViewById(R.id.btn_queding);
+        btn_queding = (SuperButton)findViewById(R.id.btn_queding);
         et_user_name =(EditText) findViewById(R.id.user_name);
         et_psw =(EditText)findViewById(R.id.psw_again);
         Drawable icon1 = getResources().getDrawable(R.mipmap.user_name);
@@ -35,6 +38,15 @@ public class ChangepawActivity extends AppCompatActivity {
         icon2.setBounds(0,0,100,100);
         et_user_name.setCompoundDrawables(icon1, null, null, null);
         et_psw.setCompoundDrawables(icon2, null, null, null);
+        ImageView imageView = findViewById(R.id.back);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                finish();
+
+            }
+        });
         btn_queding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

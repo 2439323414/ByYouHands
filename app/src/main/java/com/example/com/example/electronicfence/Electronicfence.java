@@ -11,9 +11,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.baidu.mapapi.SDKInitializer;
+import com.example.Main2Activity;
 import com.example.R;
 
 import java.util.ArrayList;
@@ -74,6 +76,15 @@ public class Electronicfence extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Electronicfence.this,FenceAlarmActivity.class);
                 startActivity(intent);
+            }
+        });
+        ImageView imageView = findViewById(R.id.back);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                finish();
+
             }
         });
     }

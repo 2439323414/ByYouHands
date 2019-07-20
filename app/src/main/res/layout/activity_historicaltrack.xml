@@ -15,10 +15,17 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/title2"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="48dp"
             android:background="#2197db"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@mipmap/icon_back"
+                android:id="@+id/back"
+                android:layout_marginLeft="5dp"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

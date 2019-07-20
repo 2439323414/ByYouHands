@@ -1,7 +1,6 @@
 package com.example.com.example.electronicfence;
 
 import android.annotation.SuppressLint;
-import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -61,8 +60,8 @@ import com.baidu.trace.model.PushMessage;
 import com.baidu.trace.model.StatusCodes;
 import com.baidu.trace.model.TraceLocation;
 import com.baidu.trace.model.TransportMode;
-import com.example.NewsActivity;
 import com.example.R;
+import com.example.com.example.fragment.NewsFragment;
 
 
 import java.util.ArrayList;
@@ -464,14 +463,11 @@ public class FenceAlarmActivity extends BaseActivity implements View.OnClickList
                         .append(alarmPushInfo.getMonitoredAction() == MonitoredAction.enter ? "进入" : "离开")
                         .append(messageType == 0x03 ? "服务端" : "本地")
                         .append("围栏了");
-                Intent intent = new Intent(FenceAlarmActivity.this,NewsActivity.class);
-                if(alarmPushInfo.getMonitoredAction() == MonitoredAction.enter )
-                {
-                    intent.putExtra("id",1);
-                }else {
-                    intent.putExtra("id",2);
-                }
-
+                Intent intent = new Intent(FenceAlarmActivity.this, NewsFragment.class);
+                NewsFragment fragment=new NewsFragment();
+                Bundle bundle=new Bundle();
+                bundle.putString("msg", String.valueOf(alarmInfo));
+                fragment.setArguments(bundle);
                 PendingIntent pi = PendingIntent.getActivity(FenceAlarmActivity.this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
                 final String CHANNEL_ID = "channel_id_1";
                 final String CHANNEL_NAME = "channel_name_1";

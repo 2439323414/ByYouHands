@@ -16,31 +16,19 @@
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <!-- 这个权限用于进行网络定位 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!-- 这个权限用于访问GPS定位 -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <!-- 用于读取手机当前的状态 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!-- 写入扩展存储，向扩展卡写入数据，用于写入对象存储BOS数据 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!-- 访问网络，网络定位需要上网 -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- SD卡读取权限，用于写入对象存储BOS数据 -->
+    <uses-permission android:name="android.permission.VIBRATE" /> <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 写入扩展存储，向扩展卡写入数据，用于写入对象存储BOS数据 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- SD卡读取权限，用于写入对象存储BOS数据 -->
     <uses-permission
         android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
-        tools:ignore="ProtectedPermissions" />
-    <!-- 用于加快GPS首次定位 -->
-    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
-    <!-- 用于Android M及以上系统，申请加入忽略电池优化白名单 -->
+        tools:ignore="ProtectedPermissions" /> <!-- 用于加快GPS首次定位 -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" /> <!-- 用于Android M及以上系统，申请加入忽略电池优化白名单 -->
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -87,12 +75,21 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/tubiao"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".Main2Activity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
         <activity
             android:name="com.mob.tools.MobUIShell"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="GLNPxl5G6zaBN4PPq4T9d3gfcsGs1FmF" />
@@ -108,13 +105,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
         <activity
             android:name=".com.example.familynumber.FamilyPhone"
             android:label="亲情号码设置" />
-        <activity android:name=".Wode" />
         <activity android:name=".com.example.location.Location" />
-        <activity android:name=".com.example.sosphone.Sosphone" />
+        <activity
+            android:name=".com.example.sosphone.Sosphone"
+            android:parentActivityName=".Main2Activity" />
         <activity android:name=".com.example.sosphone.AddData" />
         <activity
             android:name=".com.example.aboutus.AboutUs"
@@ -134,12 +131,11 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".com.example.electronicfence.Electronicfence"
-            android:screenOrientation="portrait" />
-        <!-- com.baidu.location.f 为百度定位的服务 -->
+            android:screenOrientation="portrait" /> <!-- com.baidu.location.f 为百度定位的服务 -->
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote"></service>
+            android:process=":remote" />
         <service
             android:name="com.baidu.trace.LBSTraceService"
             android:enabled="true"
@@ -167,7 +163,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppBaseTheme" />
         <activity android:name=".SereverActivity" />
-        <activity android:name=".NewsActivity"></activity>
     </application>
 
 </manifest>

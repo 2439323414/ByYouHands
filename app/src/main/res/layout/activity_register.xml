@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--注册界面-->
-<!--这里的布局放置是： 1 个 ImageView 控件，用于显示用户头像；3 个 EditText 控件，用于输入用户名、密码、再次输入密码；1 个 Button 控件为注册按钮-->
-<!--修改 activity_register.xml 为 LinearLayout 布局-->
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_register"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -102,7 +100,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_height="48dp"
             android:layout_marginLeft="35dp"
-            android:layout_marginRight="35dp"
+            android:layout_marginRight="135dp"
             android:layout_below="@+id/login_input_phone_et"
             android:drawablePadding="10dp"
             android:hint="请输入验证码"
@@ -113,25 +111,37 @@
             android:textColorHint="#a3a3a3"
             android:textSize="14sp"/>
 
-        <Button
+        <!--<Button-->
+            <!--android:id="@+id/login_request_code_btn"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignEnd="@+id/login_input_phone_et"-->
+            <!--android:layout_alignTop="@+id/login_input_code_et"-->
+            <!--android:text="获取验证码"-->
+            <!--android:textSize="14sp"/>-->
+        <top.androidman.SuperButton
             android:id="@+id/login_request_code_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/login_input_phone_et"
+            android:layout_width="100dp"
+            android:layout_height="48dp"
+            app:color_normal="#FFB90F"
+            android:layout_alignEnd="@+id/login_input_phone_et"
             android:layout_alignTop="@+id/login_input_code_et"
-            android:text="获取验证码" />
+            android:layout_gravity="center_horizontal"
+            app:corner="20dp"
+            app:text="获取验证码"
+            app:textColor="@color/color_white"
+            app:textSize="14sp" />
     </RelativeLayout>
 
-    <Button
+    <top.androidman.SuperButton
         android:id="@+id/btn_register"
-        android:layout_width="fill_parent"
+        android:layout_width="250dp"
         android:layout_height="40dp"
+        android:layout_margin="20dp"
+        app:color_normal="#6699ff"
         android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="35dp"
-        android:layout_marginRight="35dp"
-        android:layout_marginTop="15dp"
-        android:background="#6699ff"
-        android:text="注 册"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"/>
+        app:corner="30dp"
+        app:text="注 册"
+        app:textColor="@color/color_white"
+        app:textSize="18sp" />
 </LinearLayout>

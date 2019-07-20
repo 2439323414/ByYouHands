@@ -3,6 +3,7 @@ package com.example.com.example.historicaltrack;
 
 import android.os.Bundle;
 
+import com.example.Main2Activity;
 import com.example.R;
 
 import android.Manifest;
@@ -16,6 +17,7 @@ import android.os.Build;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.baidu.mapapi.SDKInitializer;
@@ -85,6 +87,13 @@ public class HistoricaltrackActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(HistoricaltrackActivity.this,TrackQueryActivity.class);
                 startActivity(intent);
+            }
+        });
+        ImageView imageView = findViewById(R.id.back);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }

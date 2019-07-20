@@ -1,5 +1,6 @@
 package com.example.com.example.loginandreg;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -14,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +25,7 @@ import com.mob.MobSDK;
 
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
+import top.androidman.SuperButton;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -36,14 +39,14 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText inputCodeEt;
 
     // 获取验证码按钮
-    private Button requestCodeBtn;
+    private SuperButton requestCodeBtn;
 
     //倒计时显示   可以手动更改。
     int i = 30;
 
     private TextView tv_main_title;//标题
     private TextView tv_back;//返回按钮
-    private Button btn_register;//注册按钮
+    private SuperButton btn_register;//注册按钮
     //用户名，密码，再次输入的密码的控件
     private EditText et_user_name, et_psw, et_psw_again, iphon;
     //用户名，密码，再次输入的密码的控件的获取值
@@ -61,6 +64,7 @@ public class RegisterActivity extends AppCompatActivity {
         init();
     }
 
+    @SuppressLint("WrongViewCast")
     private void init() {
 //        //从main_title_bar.xml 页面布局中获取对应的UI控件
 //        tv_main_title=findViewById(R.id.tv_main_title);
@@ -74,7 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
         et_user_name = findViewById(R.id.et_user_name);
         inputPhoneEt = findViewById(R.id.login_input_phone_et);
         inputCodeEt = (EditText) findViewById(R.id.login_input_code_et);
-        requestCodeBtn = (Button) findViewById(R.id.login_request_code_btn);
+        requestCodeBtn = (SuperButton) findViewById(R.id.login_request_code_btn);
         et_psw = findViewById(R.id.et_psw);
         et_psw_again = findViewById(R.id.et_psw_again);
         Drawable icon1 = getResources().getDrawable(R.mipmap.user_name);
@@ -87,6 +91,7 @@ public class RegisterActivity extends AppCompatActivity {
         et_psw.setCompoundDrawables(icon2, null, null, null);
         et_psw_again.setCompoundDrawables(icon2, null, null, null);
         inputPhoneEt.setCompoundDrawables(icon3, null, null, null);
+
 //        tv_back.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -94,7 +99,15 @@ public class RegisterActivity extends AppCompatActivity {
 //                RegisterActivity.this.finish();
 //            }
 //        });
+        ImageView imageView = findViewById(R.id.back);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                finish();
+
+            }
+        });
         // 启动短信验证sdk
         MobSDK.init(this, APPKEY, APPSECRET);
         EventHandler eventHandler = new EventHandler(){

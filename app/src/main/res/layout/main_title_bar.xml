@@ -5,10 +5,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/title_bar"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="47dp"
     android:background="#2197db">
-    <!--一个是显示返回键，一个是显示标题框-->
-    <!--通过TextView来显示，id ： tv_back , tv_main_title -->
+
 
     <TextView
         android:id="@+id/tv_main_title"
@@ -18,6 +17,5 @@
         android:text="登录"
         android:textColor="@android:color/white"
         android:textSize="20sp"/>
-    <!--其中android:background="@drawable/go_back_selector"为点击回退键时，会变化效果，其实就是一个点击更换个图片而已。-->
-    <!--我们先用这种老方法，接下来以后的文章才做代码优化效果-->
+
 </RelativeLayout>

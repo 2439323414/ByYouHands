@@ -1,22 +1,22 @@
-package com.example;
+package com.example.com.example.fragment;
 
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
-
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
+import com.example.Main2Activity;
+import com.example.R;
 import com.example.com.example.electronicfence.Electronicfence;
 import com.example.com.example.familynumber.FamilyPhone;
 import com.example.com.example.historicaltrack.HistoricaltrackActivity;
@@ -33,52 +33,46 @@ import org.json.JSONObject;
 import java.util.Random;
 
 import cz.msebera.android.httpclient.Header;
+import top.androidman.SuperButton;
 
-
-public class Wode extends AppCompatActivity {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class MyFragment extends Fragment {
+    private  View view;
     private Button dingwei;
-    private TextView name;
-    private Button boda;
+    private SuperButton boda;
     private Button history;
-    private Button jianting;
+    private SuperButton jianting;
     private Button dianziweilan1;
     private TextView zhujiemian;
     private TextView adress;
     private LocationClient mlocationClient;
     private TextView  weathers;
-    public static String name2;
-    private RadioButton news;
+
     private double latitude;
     private double longitude;
 
+    public MyFragment() {
+        // Required empty public constructor
+    }
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.wode);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.myfragment,null);
+        initView();
+        return view;
+    }
 
-        name = (TextView) findViewById(R.id.name);
-        String name1 = getIntent().getStringExtra("name");
-
-        if(name1!=null){
-
-            name2= name1;
-        }
-        name.setText(name2);
-        news =(RadioButton)findViewById(R.id.news);
-        news.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Wode.this, NewsActivity.class);
-                finish();
-                startActivity(intent);
-            }
-        });
-        adress = (TextView)findViewById(R.id.address);
-        weathers = (TextView)findViewById(R.id.weather);
-        TextView  mTextView1=(TextView)findViewById(R.id.nicheng);
-        TextView  mTextView2=(TextView)findViewById(R.id.dizhi);
-        TextView  mTextView3=(TextView)findViewById(R.id.shijian);
-        TextView  mTextView4=(TextView)findViewById(R.id.tianqi);
+    private void initView() {
+        adress = (TextView)view.findViewById(R.id.address);
+        weathers = (TextView)view.findViewById(R.id.weather);
+        TextView  mTextView1=(TextView)view.findViewById(R.id.nicheng);
+        TextView  mTextView2=(TextView)view.findViewById(R.id.dizhi);
+        TextView  mTextView3=(TextView)view.findViewById(R.id.shijian);
+        TextView  mTextView4=(TextView)view.findViewById(R.id.tianqi);
         Drawable icon1 = getResources().getDrawable(R.mipmap.nicheng);
         Drawable icon2 = getResources().getDrawable(R.mipmap.dizhi);
         Drawable icon3 = getResources().getDrawable(R.mipmap.shijian);
@@ -95,45 +89,43 @@ public class Wode extends AppCompatActivity {
         mTextView2.setCompoundDrawables(icon2, null, null, null);
         mTextView3.setCompoundDrawables(icon3, null, null, null);
         mTextView4.setCompoundDrawables(icon4, null, null, null);
-        Intent it = getIntent();
-        String da = it.getStringExtra("1");
-        adress.setText(da);
-        mlocationClient = new LocationClient(getApplicationContext());
-        mlocationClient.registerLocationListener(new Wode.MyLocationClickListener());
+//        Intent it = getIntent();
+//        String da = it.getStringExtra("1");
+//        adress.setText(da);
+
+        mlocationClient = new LocationClient(getContext());
+        mlocationClient.registerLocationListener(new MyFragment.MyLocationClickListener());
         LocationClientOption option = new LocationClientOption();
         option.setScanSpan(3000);
         option.setIsNeedAddress(true);
 
+        TextView textView = view.findViewById(R.id.name);
+        textView.setText(Main2Activity.user);
         mlocationClient.setLocOption(option);
         mlocationClient.start();
-        huizhujiemian();
         shishidingwei();
         startFamilyPhone();
         startSosphone();
         startDianziweilan();
         startHistory();
-
     }
-
-
-
     private void startHistory() {
-        history = (Button)findViewById(R.id.histor);
+        history = (Button)view.findViewById(R.id.histor);
         history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Wode.this, HistoricaltrackActivity.class);
+                Intent intent = new Intent(getContext(), HistoricaltrackActivity.class);
                 startActivity(intent);
             }
         });
     }
 
     private void startDianziweilan() {
-        dianziweilan1 = (Button) findViewById(R.id.dianziweilan1);
+        dianziweilan1 = (Button) view.findViewById(R.id.dianziweilan1);
         dianziweilan1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Wode.this, Electronicfence.class);
+                Intent intent = new Intent(getContext(), Electronicfence.class);
                 startActivity(intent);
             }
         });
@@ -171,7 +163,7 @@ public class Wode extends AppCompatActivity {
 
         RequestParams params = new RequestParams();
         AsyncHttpClient client=new AsyncHttpClient();
-        client.get(Wode.this, Url, params, new JsonHttpResponseHandler(){
+        client.get(getContext(), Url, params, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
@@ -230,50 +222,37 @@ public class Wode extends AppCompatActivity {
 
     private void startSosphone() {
 
-        jianting = (Button) findViewById(R.id.jianting);
-       jianting.setOnClickListener(new View.OnClickListener() {
+        jianting = (SuperButton) view.findViewById(R.id.jianting);
+        jianting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Wode.this, Sosphone.class);
+                Intent intent = new Intent(getContext(), Sosphone.class);
                 startActivity(intent);
             }
         });
 
     }
     private void startFamilyPhone() {
-        boda =(Button) findViewById(R.id.boda);
+        boda = (SuperButton) view.findViewById(R.id.boda);
         boda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Wode.this, FamilyPhone.class);
-                startActivity(intent);
-            }
-        });
-    }
-    private void huizhujiemian() {
-        zhujiemian = (TextView)findViewById(R.id.xiaofangzi);
-        zhujiemian.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Wode.this,MainActivity.class);
-                finish();
+                Intent intent = new Intent(getContext(), FamilyPhone.class);
                 startActivity(intent);
             }
         });
     }
 
     private void shishidingwei() {
-        dingwei= (Button)findViewById(R.id.dingwei);
+        dingwei= (Button)view.findViewById(R.id.dingwei);
         dingwei.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Wode.this, TracingActivity.class);
+                Intent intent = new Intent(getContext(), TracingActivity.class);
                 startActivity(intent);
             }
         });
     }
-
-
 
 
 }

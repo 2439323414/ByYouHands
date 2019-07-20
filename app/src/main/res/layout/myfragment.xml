@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFFAFA"
     android:clipChildren="false"
     android:orientation="vertical"
-    tools:context=".Wode">
+    tools:context=".com.example.fragment.MyFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -55,6 +55,7 @@
                     <TextView
                         android:id="@+id/name"
                         android:background="#E0FFFF"
+                        android:textStyle="bold"
                         android:textSize="20dp" />
                 </TableRow>
 
@@ -70,8 +71,9 @@
                     <TextView
                         android:id="@+id/address"
                         android:background="#E0FFFF"
+                        android:textStyle="bold"
                         android:textSize="16dp"
-                         />
+                        />
                 </TableRow>
 
                 <TableRow>
@@ -85,6 +87,7 @@
 
                     <TextClock
                         android:id="@+id/time"
+                        android:textStyle="bold"
                         android:background="#E0FFFF"
                         android:format24Hour="yyyy/MM/dd HH:mm:ss"
                         android:textSize="20dp" />
@@ -103,6 +106,7 @@
                         android:id="@+id/weather"
                         android:background="#E0FFFF"
                         android:text="多云转晴 21-33°"
+                        android:textStyle="bold"
                         android:textSize="20dp" />
                 </TableRow>
             </TableLayout>
@@ -114,15 +118,29 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <Button
+            <!--<Button-->
+                <!--android:id="@+id/boda"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:drawableLeft="@mipmap/bohao"-->
+                <!--android:text="拨打"-->
+                <!--android:textSize="25dp" />-->
+            <top.androidman.SuperButton
                 android:id="@+id/boda"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:drawableStart="@mipmap/bohao"
+                app:border_color="@color/color_red"
+                app:border_width="2dp"
+                app:color_normal="@color/color_accent"
+                app:corner="10dp"
+                app:text="拨打"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
-                android:drawableLeft="@mipmap/bohao"
-                android:text="拨打"
-                android:textSize="25dp" />
+                app:textColor="@color/color_white"
+                app:textSize="25sp" />
 
             <Button
                 android:id="@+id/jianting"
@@ -200,50 +218,5 @@
                 android:textSize="20dp" />
         </RelativeLayout>
     </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
 
-    <RadioGroup
-        android:id="@+id/radiogroup"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#FFFFFF"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/news"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:button="@null"
-            android:gravity="center"
-            android:text="消息" />
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_gravity="bottom"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/xiaofangzi"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_centerHorizontal="true"
-                android:background="@mipmap/xiaofangzi"
-                android:gravity="center" />
-        </RelativeLayout>
-
-        <RadioButton
-            android:id="@+id/wode"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:button="@null"
-            android:gravity="center"
-            android:text="我的" />
-
-    </RadioGroup>
 </LinearLayout>

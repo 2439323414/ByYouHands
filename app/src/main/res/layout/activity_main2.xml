@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Main2Activity">
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="52dp"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentLeft="true"
+    android:id="@+id/main_bottom"
+    android:layout_alignParentStart="true">
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:textColor="@drawable/tab_textcolcor"
+            android:drawableTop="@drawable/tab_news_btn"
+            android:paddingBottom="2dip"
+            android:paddingTop="7dip"
+            android:scaleType="matrix"
+            android:onClick="tabSelectClick"
+            android:id="@+id/button_tab_news"
+            android:text="@string/tab_news"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/button2_tab_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="0dp"
+            android:background="#FFFFFF"
+            android:drawableTop="@drawable/tab_home_btn"
+            android:onClick="tabSelectClick"
+            android:paddingTop="7dip"
+            android:paddingBottom="2dip"
+            android:scaleType="matrix"
+            android:text="@string/tab_home"
+            android:textColor="@drawable/tab_textcolcor" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:textColor="@drawable/tab_textcolcor"
+            android:paddingBottom="2dip"
+            android:paddingTop="7dip"
+            android:drawableTop="@drawable/tab_my_btn"
+            android:scaleType="matrix"
+            android:onClick="tabSelectClick"
+            android:id="@+id/button3_tab_My"
+            android:text="@string/tab_personal"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"/>
+    </RelativeLayout>
+</LinearLayout>
+<RelativeLayout
+    android:id="@+id/content_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:layout_above="@+id/main_bottom">
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v4.view.ViewPager>
+</RelativeLayout>
+</RelativeLayout>

@@ -8,6 +8,7 @@ import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.support.v7.app.AlertDialog;
@@ -19,10 +20,12 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.Main2Activity;
 import com.example.R;
 
 import java.util.Calendar;
@@ -49,6 +52,15 @@ public class Clock extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clock);
         Toolbar toolbar =(Toolbar)findViewById(R.id.title2);
+        ImageView imageView = findViewById(R.id.back);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                finish();
+
+            }
+        });
         mediaPlayer = MediaPlayer.create(this,R.raw.clockmusic2);
         SharedPreferences settings = getPreferences(Activity.MODE_PRIVATE);
         show1String = settings.getString("TIME1", defalutString);

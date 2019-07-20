@@ -23,8 +23,9 @@ import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.utils.CoordinateConverter;
+import com.example.Main2Activity;
 import com.example.R;
-import com.example.Wode;
+import com.example.com.example.fragment.MyFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -140,10 +141,10 @@ public class Location extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         mapView.onPause();
-        Intent it = new Intent(this,Wode.class);
-        String s=currentPosition2.toString();
-        it.putExtra("1",s);
-        startActivity(it);
+//        Intent it = new Intent(this, MyFragment.class);
+//        String s=currentPosition2.toString();
+//        it.putExtra("1",s);
+//        startActivity(it);
     }
 
     @Override

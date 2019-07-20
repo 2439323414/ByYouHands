@@ -1,6 +1,5 @@
 package com.example.com.example.loginandreg;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -16,13 +15,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.MainActivity;
+import com.example.Main2Activity;
 import com.example.R;
+
+import top.androidman.SuperButton;
 
 public class LoginActivity extends AppCompatActivity{
     private TextView tv_main_title;//标题
     private TextView tv_back,tv_register,tv_find_psw;//返回键,显示的注册，找回密码
-    private Button btn_login;//登录按钮
+    private SuperButton btn_login;//登录按钮
     private String userName,psw,spPsw;//获取的用户名，密码，加密密码
     private EditText et_user_name,et_psw;//编辑框
     private SharedPreferences sp;
@@ -157,8 +158,9 @@ public class LoginActivity extends AppCompatActivity{
                     //销毁登录界面
                     LoginActivity.this.finish();
                     //跳转到主界面，登录成功的状态传递到 MainActivity 中
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, Main2Activity.class);
                     intent.putExtra("name",userName);
+                    System.out.println(userName);
                     startActivity(intent);
 
                     return;
@@ -220,6 +222,7 @@ public class LoginActivity extends AppCompatActivity{
                 et_user_name.setText(userName);
                 //et_user_name控件的setSelection()方法来设置光标位置
                 et_user_name.setSelection(userName.length());
+                et_psw.setText("");
             }
         }
     }
