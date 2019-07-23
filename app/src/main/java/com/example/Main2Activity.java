@@ -57,8 +57,10 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
 
         //获得传过来的数据
         Intent intent = getIntent();
-        user = intent.getStringExtra("name");
-
+        String users = intent.getStringExtra("name");
+        if(users!=null){
+            user = users;
+        }
     }
 
     private void defaultButton() {

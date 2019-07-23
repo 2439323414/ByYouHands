@@ -128,8 +128,7 @@
     <string name="start_gather">开启采集</string>
     <string name="stop_gather">停止采集</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 
 </resources>

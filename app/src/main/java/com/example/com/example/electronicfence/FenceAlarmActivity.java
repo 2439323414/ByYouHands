@@ -25,6 +25,7 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.res.ResourcesCompat;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.baidu.mapapi.map.BaiduMap;
@@ -60,6 +61,7 @@ import com.baidu.trace.model.PushMessage;
 import com.baidu.trace.model.StatusCodes;
 import com.baidu.trace.model.TraceLocation;
 import com.baidu.trace.model.TransportMode;
+import com.example.Main2Activity;
 import com.example.R;
 import com.example.com.example.fragment.NewsFragment;
 
@@ -464,10 +466,11 @@ public class FenceAlarmActivity extends BaseActivity implements View.OnClickList
                         .append(messageType == 0x03 ? "服务端" : "本地")
                         .append("围栏了");
                 Intent intent = new Intent(FenceAlarmActivity.this, NewsFragment.class);
-                NewsFragment fragment=new NewsFragment();
-                Bundle bundle=new Bundle();
-                bundle.putString("msg", String.valueOf(alarmInfo));
-                fragment.setArguments(bundle);
+//                NewsFragment fragment=new NewsFragment();
+//                Bundle bundle=new Bundle();
+//                bundle.putString("msg", alarmInfo.toString());
+//                fragment.setArguments(bundle);
+                NewsFragment.string = alarmInfo.toString();
                 PendingIntent pi = PendingIntent.getActivity(FenceAlarmActivity.this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
                 final String CHANNEL_ID = "channel_id_1";
                 final String CHANNEL_NAME = "channel_name_1";

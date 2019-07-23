@@ -54,7 +54,8 @@
                 android:text="@string/start_gather"
                 android:background="@mipmap/bg_btn_cancel"
                 android:textColor="@color/layout_title"
-                android:onClick="onTraceControl"/>
+                android:onClick="onTraceControl"
+             />
 
     </LinearLayout>
 

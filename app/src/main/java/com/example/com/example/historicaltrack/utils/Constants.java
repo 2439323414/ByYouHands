@@ -15,7 +15,7 @@ public final class Constants {
     /**
      * 默认采集周期
      */
-    public static final int DEFAULT_GATHER_INTERVAL = 5;
+    public static final int DEFAULT_GATHER_INTERVAL = 3;
 
     /**
      * 默认打包周期
@@ -25,7 +25,7 @@ public final class Constants {
     /**
      * 实时定位间隔(单位:秒)
      */
-    public static final int LOC_INTERVAL = 5;
+    public static final int LOC_INTERVAL = 2;
 
     /**
      * 最后一次定位信息
